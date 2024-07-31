@@ -1,0 +1,64 @@
+<!-- update-course.component.html -->
+<h1 mat-dialog-title>Update Course</h1>
+<div mat-dialog-content>
+  <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+    <mat-form-field >
+      <mat-label>University</mat-label>
+      <input matInput formControlName="university">
+      <mat-error *ngIf="courseForm.get('university')?.invalid">University is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>City</mat-label>
+      <input matInput formControlName="city">
+      <mat-error *ngIf="courseForm.get('city')?.invalid">City is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Country</mat-label>
+      <input matInput formControlName="country">
+      <mat-error *ngIf="courseForm.get('country')?.invalid">Country is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Course Name</mat-label>
+      <input matInput formControlName="course_name">
+      <mat-error *ngIf="courseForm.get('course_name')?.invalid">Course Name is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Course Description</mat-label>
+      <input matInput formControlName="course_description">
+      <mat-error *ngIf="courseForm.get('course_description')?.invalid">Course Description is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Start Date</mat-label>
+      <input matInput formControlName="start_date" type="date">
+      <mat-error *ngIf="courseForm.get('start_date')?.invalid">Start Date is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>End Date</mat-label>
+      <input matInput formControlName="end_date" type="date">
+      <mat-error *ngIf="courseForm.get('end_date')?.invalid">End Date is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Price</mat-label>
+      <input matInput formControlName="price" type="number">
+      <mat-error *ngIf="courseForm.get('price')?.invalid">Price is required and must be greater than 0</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Currency</mat-label>
+      <input matInput formControlName="currency">
+      <mat-error *ngIf="courseForm.get('currency')?.invalid">Currency is required</mat-error>
+    </mat-form-field>
+
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">Cancel</button>
+      <button mat-button type="submit" [disabled]="courseForm.invalid">Update</button>
+    </div>
+  </form>
+</div>
